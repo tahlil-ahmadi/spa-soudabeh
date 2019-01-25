@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Academy.DataAccess.EFCore\Academy.DataAccess.EFCore.csproj" />
+    <ProjectReference Include="..\Academy.Domain\Academy.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
