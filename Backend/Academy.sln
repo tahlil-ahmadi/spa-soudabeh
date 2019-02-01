@@ -5,11 +5,21 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Academy.Gateways.RestApi", "Academy.Gateways.RestApi\Academy.Gateways.RestApi.csproj", "{3FA8F2E8-4DE6-4837-A0B8-4D0398E347C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy.Domain", "Academy.Domain\Academy.Domain.csproj", "{06386E84-98DD-4CCD-B173-2D0D463BACD5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Academy.Domain", "Academy.Domain\Academy.Domain.csproj", "{06386E84-98DD-4CCD-B173-2D0D463BACD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy.DataAccess.EFCore", "Academy.DataAccess.EFCore\Academy.DataAccess.EFCore.csproj", "{BD6FD7B6-46F8-4646-9089-E8BFB50B9D8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Academy.DataAccess.EFCore", "Academy.DataAccess.EFCore\Academy.DataAccess.EFCore.csproj", "{BD6FD7B6-46F8-4646-9089-E8BFB50B9D8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy.Application", "Academy.Application\Academy.Application.csproj", "{B19F0BEA-C0F2-4797-85C8-C23650FC4DC4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Academy.Application", "Academy.Application\Academy.Application.csproj", "{B19F0BEA-C0F2-4797-85C8-C23650FC4DC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Academy.Config", "Academy.Config\Academy.Config.csproj", "{BE7B8A28-AD34-4563-9C94-6B1DB2AC895A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{13FC38FB-8F77-4285-8F31-4D45DBC9ABB9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{D563D192-7F36-4367-8CD9-1EA124C3009E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{B8B4BD16-EB93-4D40-AE7F-A19D85F9566D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RestApi", "RestApi", "{5ABDF900-BEA8-499E-91BD-DEDFF18B3349}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +43,20 @@ Global
 		{B19F0BEA-C0F2-4797-85C8-C23650FC4DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B19F0BEA-C0F2-4797-85C8-C23650FC4DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B19F0BEA-C0F2-4797-85C8-C23650FC4DC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE7B8A28-AD34-4563-9C94-6B1DB2AC895A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE7B8A28-AD34-4563-9C94-6B1DB2AC895A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE7B8A28-AD34-4563-9C94-6B1DB2AC895A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE7B8A28-AD34-4563-9C94-6B1DB2AC895A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3FA8F2E8-4DE6-4837-A0B8-4D0398E347C2} = {5ABDF900-BEA8-499E-91BD-DEDFF18B3349}
+		{06386E84-98DD-4CCD-B173-2D0D463BACD5} = {13FC38FB-8F77-4285-8F31-4D45DBC9ABB9}
+		{BD6FD7B6-46F8-4646-9089-E8BFB50B9D8E} = {B8B4BD16-EB93-4D40-AE7F-A19D85F9566D}
+		{B19F0BEA-C0F2-4797-85C8-C23650FC4DC4} = {D563D192-7F36-4367-8CD9-1EA124C3009E}
+		{BE7B8A28-AD34-4563-9C94-6B1DB2AC895A} = {B8B4BD16-EB93-4D40-AE7F-A19D85F9566D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6474B25D-BFCD-43CD-B28C-81E14F348043}

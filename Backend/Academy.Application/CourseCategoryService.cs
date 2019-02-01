@@ -8,31 +8,30 @@ using Mapster;
 
 namespace Academy.Application
 {
-    public class CourseCategoryService
+    public class CourseCategoryService : ICourseCategoryService
     {
+        private readonly AcademyDbContext _dbContext;
+        public CourseCategoryService(AcademyDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
         public void Create(CreateCourseCategoryDto dto)
         {
-            using (var context = new AcademyDbContext())
+            var entity = new CourseCategory()
             {
-                var entity = new CourseCategory()
-                {
-                    ParentCategoryId = dto.ParentId,
-                    Title = dto.Title
-                };
-                context.CourseCategories.Add(entity);
-                context.SaveChanges();
-            }
+                ParentCategoryId = dto.ParentId,
+                Title = dto.Title
+            };
+            _dbContext.CourseCategories.Add(entity);
+            _dbContext.SaveChanges();
         }
         public List<CourseCategoryDto> GetAll()
         {
-            using (var context = new AcademyDbContext())
-            {
-                //TODO: whole tree is loading, make it lazy
-                var entities = context.CourseCategories.ToList()
-                                .Where(a=>a.ParentCategoryId == null)
-                                .ToList();
-                return entities.Adapt<List<CourseCategoryDto>>();
-            }
+            //TODO: whole tree is loading, make it lazy
+            var entities = _dbContext.CourseCategories.ToList()
+                            .Where(a=>a.ParentCategoryId == null)
+                            .ToList();
+            return entities.Adapt<List<CourseCategoryDto>>();
         }
     }
 }

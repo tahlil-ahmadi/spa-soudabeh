@@ -12,11 +12,15 @@ namespace Academy.Gateways.RestApi.Controllers
     [ApiController]
     public class CourseCategoriesController : ControllerBase
     {
+        private readonly ICourseCategoryService _service;
+        public CourseCategoriesController(ICourseCategoryService service)
+        {
+            _service = service;
+        }
         [HttpGet]
         public List<CourseCategoryDto> Get()
         {
-            //TODO: inject dependencies
-            return new CourseCategoryService().GetAll();
+            return _service.GetAll();
         }
     }
 }
