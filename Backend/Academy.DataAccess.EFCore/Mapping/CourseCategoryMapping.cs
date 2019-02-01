@@ -14,7 +14,7 @@ namespace Academy.DataAccess.EFCore.Mapping
             builder.ToTable("CourseCategories");
             builder.Property(a => a.Title).HasMaxLength(250).IsRequired();
             builder.HasOne(a => a.ParentCategory)
-                   .WithMany()
+                   .WithMany(a=>a.Children)
                    .HasForeignKey(a => a.ParentCategoryId);
         }
     }

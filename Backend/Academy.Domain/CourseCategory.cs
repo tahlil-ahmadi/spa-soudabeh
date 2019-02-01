@@ -9,5 +9,6 @@ namespace Academy.Domain
         public string Title { get; set; }
         public CourseCategory ParentCategory { get; set; }
         public long? ParentCategoryId { get; set; }
+        public List<CourseCategory> Children { get; set; }
     }
 }

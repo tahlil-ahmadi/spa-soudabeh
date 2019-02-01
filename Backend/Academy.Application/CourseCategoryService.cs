@@ -27,7 +27,10 @@ namespace Academy.Application
         {
             using (var context = new AcademyDbContext())
             {
-                var entities = context.CourseCategories.ToList();
+                //TODO: whole tree is loading, make it lazy
+                var entities = context.CourseCategories.ToList()
+                                .Where(a=>a.ParentCategoryId == null)
+                                .ToList();
                 return entities.Adapt<List<CourseCategoryDto>>();
             }
         }
