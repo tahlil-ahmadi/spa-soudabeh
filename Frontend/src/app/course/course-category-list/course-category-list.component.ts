@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CourseCategoryService } from '../shared/course-category.service';
+import { CourseCategory } from '../shared/course-category';
 
 @Component({
   selector: 'app-course-category-list',
@@ -7,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseCategoryListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: CourseCategoryService) { }
 
   ngOnInit() {
+    this.service.getAll().subscribe(data=>{
+      debugger;
+    });
   }
-
 }

@@ -14,6 +14,7 @@ namespace Academy.Gateways.RestApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddCors();
         }
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -21,6 +22,14 @@ namespace Academy.Gateways.RestApi
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseCors(builder =>
+            {
+                //TODO: don't try this at home
+                builder.AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowAnyOrigin();
+            });
 
             app.UseMvcWithDefaultRoute();
         }

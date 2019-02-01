@@ -12,10 +12,11 @@ namespace Academy.Gateways.RestApi.Controllers
     [ApiController]
     public class CourseCategoriesController : ControllerBase
     {
-        public void Post(CreateCourseCategoryDto dto)
+        [HttpGet]
+        public List<CourseCategoryDto> Get()
         {
-            //TODO: use Dependency injection
-            new CourseCategoryService().Create(dto);
+            //TODO: inject dependencies
+            return new CourseCategoryService().GetAll();
         }
     }
 }

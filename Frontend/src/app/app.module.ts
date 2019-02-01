@@ -14,7 +14,7 @@ import { RouterModule } from '@angular/router';
 
     CourseModule
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

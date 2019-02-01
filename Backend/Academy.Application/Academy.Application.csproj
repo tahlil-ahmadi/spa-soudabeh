@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="mapster" Version="3.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Academy.DataAccess.EFCore\Academy.DataAccess.EFCore.csproj" />
     <ProjectReference Include="..\Academy.Domain\Academy.Domain.csproj" />
   </ItemGroup>
