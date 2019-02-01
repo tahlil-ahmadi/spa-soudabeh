@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CourseCategoryService } from '../shared/course-category.service';
 import { CourseCategory } from '../shared/course-category';
 import { of, Observable } from 'rxjs';
+import { DialogService } from '@progress/kendo-angular-dialog';
+import { CourseListComponent } from '../course-list/course-list.component';
 
 @Component({
   selector: 'app-course-category-list',
@@ -11,7 +13,8 @@ import { of, Observable } from 'rxjs';
 export class CourseCategoryListComponent implements OnInit {
 
   courseCategories: Array<CourseCategory>;
-  constructor(private service: CourseCategoryService) { }
+  constructor(private service: CourseCategoryService,
+              private dialogService: DialogService) { }
 
   ngOnInit() {
     this.service.getAll().subscribe(response => {
@@ -36,5 +39,16 @@ export class CourseCategoryListComponent implements OnInit {
   edit(model : CourseCategory) {
     alert(model.id + " edit clicked !")
 
+  }
+
+  addRoot() {
+    const dialogRef = this.dialogService.open({
+      title: 'Please confirm',
+      content: CourseListComponent,
+      actions: [
+        { text: 'Cancel' },
+        { text: 'Delete', primary: true }
+      ]
+    });
   }
 }

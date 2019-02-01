@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { TreeViewModule } from '@progress/kendo-angular-treeview';
+import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { CourseCategoryListComponent } from './course-category-list/course-category-list.component';
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseCategoryService } from './shared/course-category.service';
@@ -23,6 +24,7 @@ const routes : Routes =[
     CommonModule,
     HttpClientModule,
     TreeViewModule,
+    DialogsModule,
     RouterModule.forRoot(routes)  //TODO: describe forRoot & forChild
   ],
   providers:[
