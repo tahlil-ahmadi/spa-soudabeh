@@ -2,33 +2,35 @@ import { Observable } from "rxjs";
 import { CourseCategory } from "./course-category";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment.prod";
 
 @Injectable()
 export class CourseCategoryService {
+    private resourceName ="CourseCategories";
 
     constructor(private http: HttpClient) {
     }
 
     getAll() : Observable<Array<CourseCategory>> {
-        //TODO: remove hard coded url
-        return this.http.get<Array<CourseCategory>>("http://localhost:5000/api/CourseCategories");
+        return this.http.get<Array<CourseCategory>>(this.getUrl());
     }
 
     save(model: CourseCategory) : Observable<any> {
-        //TODO: remove hard coded url
         if (model.id)
-            return this.http.put("http://localhost:5000/api/CourseCategories/" + model.id,model);
+            return this.http.put(this.getUrl(model.id),model);
         else
-            return this.http.post("http://localhost:5000/api/CourseCategories",model);
+            return this.http.post(this.getUrl(),model);
     }
 
     delete(id: number): Observable<any> {
-        //TODO: remove hard coded url
-        return this.http.delete("http://localhost:5000/api/CourseCategories/" + id);
+        return this.http.delete(this.getUrl(id));
     }
 
     getById(id: number): Observable<CourseCategory> {
-        //TODO: remove hard coded url
-        return this.http.get<CourseCategory>("http://localhost:5000/api/CourseCategories/" + id);
+        return this.http.get<CourseCategory>(this.getUrl(id));
+    }
+
+    private getUrl(id?: number) {
+        return `${environment.baseUrl}${this.resourceName}/${id}`;
     }
 }
