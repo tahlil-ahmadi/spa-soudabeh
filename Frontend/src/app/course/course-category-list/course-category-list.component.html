@@ -1,5 +1,5 @@
 <div>
-  <button (click)="addRoot()">Add</button>
+  <button (click)="addRoot()">Add Root</button>
 </div>
 
 <kendo-treeview kendoTreeViewExpandable 
@@ -12,6 +12,7 @@
     {{dataItem.title}}
     <span class="k-icon k-i-trash clickable" (click)="delete(dataItem)"></span>
     <span class="k-icon k-i-pencil clickable" (click)="edit(dataItem)"></span>
+    <span class="k-icon k-i-add clickable" (click)="addChild(dataItem)"></span>
   </ng-template>
 </kendo-treeview>
 

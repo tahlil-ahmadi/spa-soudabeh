@@ -1,0 +1,10 @@
+
+<form #form="ngForm">
+    <div>
+        <label for="title">Title : </label>
+        <input type="text" name="title" [(ngModel)]="model.title" required #title="ngModel"/>
+        <span style="color:red" *ngIf="title.invalid">*</span>
+      </div>
+</form>
+
+<button (click)="save()" [disabled]="form.invalid">Save</button>

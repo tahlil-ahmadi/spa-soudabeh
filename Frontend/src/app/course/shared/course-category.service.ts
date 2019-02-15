@@ -16,6 +16,19 @@ export class CourseCategoryService {
 
     save(model: CourseCategory) : Observable<any> {
         //TODO: remove hard coded url
-        return this.http.post("http://localhost:5000/api/CourseCategories",model);
+        if (model.id)
+            return this.http.put("http://localhost:5000/api/CourseCategories/" + model.id,model);
+        else
+            return this.http.post("http://localhost:5000/api/CourseCategories",model);
+    }
+
+    delete(id: number): Observable<any> {
+        //TODO: remove hard coded url
+        return this.http.delete("http://localhost:5000/api/CourseCategories/" + id);
+    }
+
+    getById(id: number): Observable<CourseCategory> {
+        //TODO: remove hard coded url
+        return this.http.get<CourseCategory>("http://localhost:5000/api/CourseCategories/" + id);
     }
 }

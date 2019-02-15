@@ -33,5 +33,28 @@ namespace Academy.Application
                             .ToList();
             return entities.Adapt<List<CourseCategoryDto>>();
         }
+
+        public void Delete(long id)
+        {
+            var entity = this._dbContext.CourseCategories.FirstOrDefault(a => a.Id == id);
+            if (entity != null)
+            {
+                this._dbContext.CourseCategories.Remove(entity);
+                this._dbContext.SaveChanges();
+            }
+        }
+
+        public CourseCategoryDto GetById(long id)
+        {
+            var entity = this._dbContext.CourseCategories.First(a => a.Id == id);
+            return entity.Adapt<CourseCategoryDto>();
+        }
+
+        public void Modify(ModifyCourseCategoryDto dto)
+        {
+            var entity = this._dbContext.CourseCategories.First(a => a.Id == dto.Id);
+            entity.Title = dto.Title;
+            _dbContext.SaveChanges();
+        }
     }
 }

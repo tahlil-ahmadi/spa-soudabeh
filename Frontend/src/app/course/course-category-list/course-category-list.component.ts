@@ -4,6 +4,7 @@ import { CourseCategory } from '../shared/course-category';
 import { of, Observable } from 'rxjs';
 import { DialogService } from '@progress/kendo-angular-dialog';
 import { CourseListComponent } from '../course-list/course-list.component';
+import { CourseCategoryItemComponent } from '../course-category-item/course-category-item.component';
 
 @Component({
   selector: 'app-course-category-list',
@@ -17,6 +18,35 @@ export class CourseCategoryListComponent implements OnInit {
               private dialogService: DialogService) { }
 
   ngOnInit() {
+    this.reloadTree();
+  }
+  addRoot() {
+    this.openDialog(null);
+  }
+  edit(model : CourseCategory) {
+    this.openDialog(model.id);
+  }
+  private openDialog(id: number) {
+    const dialogRef = this.dialogService.open({
+      title: 'Please confirm',
+      content: CourseCategoryItemComponent,
+    });
+
+    dialogRef.content.instance.id = id;
+    dialogRef.result.subscribe(result => {
+      if (result == true) {
+        this.reloadTree();
+      }
+    });
+  }
+
+  delete(model : CourseCategory) {
+    if (confirm("are you sure?")){
+      this.service.delete(model.id).subscribe(a=> this.reloadTree());
+    }
+  }
+
+  private reloadTree() {
     this.service.getAll().subscribe(response => {
       this.courseCategories = response;
     });
@@ -28,27 +58,10 @@ export class CourseCategoryListComponent implements OnInit {
     }
     return false;
   }
-  fetchChildren(model: CourseCategory) : Observable<Array<CourseCategory>> {
+
+  fetchChildren(model: CourseCategory) :Observable<Array<CourseCategory>> {
     return of(model.children);
   }
+  
 
-  delete(model : CourseCategory) {
-    alert(model.id + " delete clicked !")
-  }
-
-  edit(model : CourseCategory) {
-    alert(model.id + " edit clicked !")
-
-  }
-
-  addRoot() {
-    const dialogRef = this.dialogService.open({
-      title: 'Please confirm',
-      content: CourseListComponent,
-      actions: [
-        { text: 'Cancel' },
-        { text: 'Delete', primary: true }
-      ]
-    });
-  }
 }

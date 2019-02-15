@@ -6,5 +6,8 @@ namespace Academy.Application
     {
         void Create(CreateCourseCategoryDto dto);
         List<CourseCategoryDto> GetAll();
+        void Delete(long id);
+        CourseCategoryDto GetById(long id);
+        void Modify(ModifyCourseCategoryDto dto);
     }
 }
