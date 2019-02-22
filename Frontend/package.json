@@ -20,15 +20,16 @@
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
     "@angular/router": "~7.0.0",
+    "@progress/kendo-angular-buttons": "^4.0.0",
     "@progress/kendo-angular-dialog": "^3.10.1",
+    "@progress/kendo-angular-l10n": "^1.1.0",
     "@progress/kendo-angular-treeview": "^2.5.0",
     "@progress/kendo-theme-default": "latest",
     "core-js": "^2.5.4",
+    "oidc-client": "^1.6.1",
     "rxjs": "~6.3.3",
     "rxjs-compat": "^6.0.0",
-    "zone.js": "~0.8.26",
-    "@progress/kendo-angular-l10n": "^1.1.0",
-    "@progress/kendo-angular-buttons": "^4.0.0"
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
