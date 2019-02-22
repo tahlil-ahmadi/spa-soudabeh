@@ -1,26 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { UserManager } from 'oidc-client';
+import { AuthService } from './auth/shared/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  
-  
+export class AppComponent implements OnInit {
+ 
+  constructor(private authService: AuthService, 
+              private router: Router) { }
 
-  login() {
-    const settings = {
-      authority: 'http://localhost:5000/',
-      client_id: 'academy-soudabeh',
-      redirect_uri: 'http://localhost:4200/auth-callback',
-      response_type: "id_token token",
-      scope: "openid profile soudabeh-api",
-      loadUserInfo: true,
-      filterProtocolClaims: true,
+  ngOnInit(): void {
+    if (!this.authService.isUserLoggedIn() && location.pathname != "/auth-callback"){
+      this.authService.redirectToSts("");
     }
-    const userManager =new UserManager(settings);
-    userManager.signinRedirect();
+
   }
+  
 }

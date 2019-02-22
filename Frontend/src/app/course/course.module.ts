@@ -10,12 +10,13 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { CourseCategoryService } from './shared/course-category.service';
 import { CourseCategoryItemComponent } from './course-category-item/course-category-item.component';
 import { CoreModule } from '../core/core.module';
+import { AuthGuard } from '../auth/shared/auth-guard.service';
 
 
 //TODO: move to seperate module
 const routes : Routes =[
-  { path: 'course-category-list', component: CourseCategoryListComponent },
-  { path: 'course-list', component: CourseListComponent },
+  { path: 'course-category-list', component: CourseCategoryListComponent, canActivate:[AuthGuard] },
+  { path: 'course-list', component: CourseListComponent, canActivate:[AuthGuard] },
 ];
 
 @NgModule({

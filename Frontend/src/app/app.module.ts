@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { CourseModule } from './course/course.module';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthModule } from './auth/auth.module';
 
 
 
@@ -17,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RouterModule,
 
     CourseModule,
+    AuthModule,
 
     BrowserAnimationsModule
   ],
