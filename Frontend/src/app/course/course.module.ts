@@ -9,6 +9,7 @@ import { CourseCategoryListComponent } from './course-category-list/course-categ
 import { CourseListComponent } from './course-list/course-list.component';
 import { CourseCategoryService } from './shared/course-category.service';
 import { CourseCategoryItemComponent } from './course-category-item/course-category-item.component';
+import { CoreModule } from '../core/core.module';
 
 
 //TODO: move to seperate module
@@ -25,7 +26,7 @@ const routes : Routes =[
   ],
   imports: [
     CommonModule,
-    HttpClientModule,
+    CoreModule,
     FormsModule,
     RouterModule.forRoot(routes),  //TODO: describe forRoot & forChild
 
