@@ -5,6 +5,7 @@ import { CourseModule } from './course/course.module';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
+import { LayoutModule } from './layout/layout.module';
 
 
 
@@ -17,6 +18,7 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     RouterModule,
 
+    LayoutModule,
     CourseModule,
     AuthModule,
 
