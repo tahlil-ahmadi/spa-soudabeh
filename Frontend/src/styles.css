@@ -21,9 +21,7 @@ body{
 	/* direction:rtl; */
 	font:8pt/1.7 Tahoma, Geneva, sans-serif;
 }
-body{
-	background:url(assets/image/nav.png) right repeat-y;
-}
+
 div.menu{
 	width:100%;
 	position:fixed;

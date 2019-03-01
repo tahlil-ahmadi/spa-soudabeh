@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 })
 export class AppComponent implements OnInit {
  
+  private shouldShowPanel = false;
+
   constructor(private authService: AuthService, 
               private router: Router) { }
 
@@ -17,7 +19,9 @@ export class AppComponent implements OnInit {
     if (!this.authService.isUserLoggedIn() && location.pathname != "/auth-callback"){
       this.authService.redirectToSts("");
     }
-
+    else {
+      this.shouldShowPanel = true;
+    }
   }
   
 }

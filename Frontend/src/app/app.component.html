@@ -1,16 +1,9 @@
+<div *ngIf="shouldShowPanel">
+    <ngx-loading-bar [height]="'5px'" [color]="'#ffff00'" [diameter]="'15px'"></ngx-loading-bar>
 
-<app-menu-bar> </app-menu-bar>
+    <app-menu-bar> </app-menu-bar>
 
-<div class="content">
-    <router-outlet></router-outlet>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
 </div>
-
-<!-- <h1>header</h1>
-
-<a [routerLink]="['/course-category-list']" >Course Category List</a>
-<br/>
-<a [routerLink]="['/course-list']" >Course List</a>
-
-<router-outlet></router-outlet>
-
-<h1>footer</h1> -->

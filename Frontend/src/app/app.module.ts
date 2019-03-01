@@ -6,9 +6,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthModule } from './auth/auth.module';
 import { LayoutModule } from './layout/layout.module';
-
-
-
+import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
 @NgModule({
   declarations: [
@@ -17,6 +15,7 @@ import { LayoutModule } from './layout/layout.module';
   imports: [
     BrowserModule,
     RouterModule,
+    LoadingBarHttpClientModule,
 
     LayoutModule,
     CourseModule,
