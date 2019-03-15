@@ -15,8 +15,9 @@ export class AuthService {
       authority: 'http://localhost:5000/',
       client_id: 'academy-soudabeh',
       redirect_uri: 'http://localhost:4200/auth-callback',
-      response_type: "id_token token",
+      response_type: "code",
       scope: "openid profile soudabeh-api",
+      response_mode: "query"
     }
     this.userManager = new UserManager(settings);
     this.userManager.getUser().then(user=> this.user = user);

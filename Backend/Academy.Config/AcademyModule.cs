@@ -11,7 +11,9 @@ namespace Academy.Config
     {
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<CourseCategoryService>().As<ICourseCategoryService>().InstancePerLifetimeScope();
+            builder.RegisterType<CourseCategoryService>()
+                .As<ICourseCategoryService>()
+                .InstancePerLifetimeScope();
             builder.RegisterType<AcademyDbContext>().InstancePerLifetimeScope();
         }
     }
