@@ -1,0 +1,1 @@
+dotnet run --project "Backend\Academy.Gateways.RestApi"

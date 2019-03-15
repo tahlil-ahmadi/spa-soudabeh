@@ -1,0 +1,1 @@
+dotnet run --project "STS\src\Skoruba.IdentityServer4.Admin"

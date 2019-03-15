@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Academy.Application;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace Academy.Gateways.RestApi.Controllers
 {
@@ -14,13 +15,18 @@ namespace Academy.Gateways.RestApi.Controllers
     public class CourseCategoriesController : ControllerBase
     {
         private readonly ICourseCategoryService _service;
-        public CourseCategoriesController(ICourseCategoryService service)
+        private readonly ILogger<CourseCategoriesController> _logger;
+
+        public CourseCategoriesController(ICourseCategoryService service,
+                                          ILogger<CourseCategoriesController> logger)
         {
             _service = service;
+            _logger = logger;
         }
         [HttpGet]
         public List<CourseCategoryDto> Get()
         {
+            _logger.LogError("oh my god what a O_o");
             return _service.GetAll();
         }
         [HttpGet]

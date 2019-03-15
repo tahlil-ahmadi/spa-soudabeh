@@ -8,6 +8,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace Academy.Gateways.RestApi
 {
@@ -20,6 +21,11 @@ namespace Academy.Gateways.RestApi
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseSerilog((hostingContext, loggerConfiguration) =>
+                {
+                    loggerConfiguration.MinimumLevel.Error()
+                        .WriteTo.File(@"logs\log.txt", fileSizeLimitBytes: 50000000, rollOnFileSizeLimit: true);
+                })
                 .ConfigureServices(a=>a.AddAutofac())
                 .UseStartup<Startup>();
     }
