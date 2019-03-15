@@ -23,7 +23,7 @@ namespace Academy.Gateways.RestApi
             WebHost.CreateDefaultBuilder(args)
                 .UseSerilog((hostingContext, loggerConfiguration) =>
                 {
-                    loggerConfiguration.MinimumLevel.Error()
+                    loggerConfiguration.MinimumLevel.Information()
                         .WriteTo.File(@"logs\log.txt", fileSizeLimitBytes: 50000000, rollOnFileSizeLimit: true);
                 })
                 .ConfigureServices(a=>a.AddAutofac())

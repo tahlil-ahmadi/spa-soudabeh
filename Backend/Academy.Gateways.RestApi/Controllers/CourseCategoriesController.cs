@@ -15,18 +15,13 @@ namespace Academy.Gateways.RestApi.Controllers
     public class CourseCategoriesController : ControllerBase
     {
         private readonly ICourseCategoryService _service;
-        private readonly ILogger<CourseCategoriesController> _logger;
-
-        public CourseCategoriesController(ICourseCategoryService service,
-                                          ILogger<CourseCategoriesController> logger)
+        public CourseCategoriesController(ICourseCategoryService service)
         {
             _service = service;
-            _logger = logger;
         }
         [HttpGet]
         public List<CourseCategoryDto> Get()
         {
-            _logger.LogError("oh my god what a O_o");
             return _service.GetAll();
         }
         [HttpGet]

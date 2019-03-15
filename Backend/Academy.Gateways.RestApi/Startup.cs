@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Academy.Application;
 using Academy.Config;
+using Academy.Gateways.RestApi.Middlewares;
 using Autofac;
 using IdentityServer4.AccessTokenValidation;
 using Microsoft.AspNetCore.Builder;
@@ -39,15 +40,10 @@ namespace Academy.Gateways.RestApi
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseRequestLogging();
             app.UseAuthentication();
-            app.UseCors(builder =>
-            {
-                //TODO: don't try this at home
-                builder.AllowAnyHeader()
-                    .AllowAnyMethod()
-                    .AllowAnyOrigin();
-            });
-
+            //TODO: don't try this at home
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
             app.UseMvcWithDefaultRoute();
         }
     }
