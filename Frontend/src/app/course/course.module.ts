@@ -11,6 +11,7 @@ import { CourseCategoryService } from './shared/course-category.service';
 import { CourseCategoryItemComponent } from './course-category-item/course-category-item.component';
 import { CoreModule } from '../core/core.module';
 import { AuthGuard } from '../auth/shared/auth-guard.service';
+import { GridModule } from '@progress/kendo-angular-grid';
 
 
 //TODO: move to seperate module
@@ -33,6 +34,7 @@ const routes : Routes =[
 
     TreeViewModule,
     DialogsModule,
+    GridModule
   ],
   providers:[
     CourseCategoryService

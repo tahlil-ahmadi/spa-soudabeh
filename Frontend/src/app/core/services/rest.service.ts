@@ -10,6 +10,11 @@ export class RestService {
   
   constructor(private httpClient: HttpClient) {  }
 
+  get<T>(resourceName:string, queryString:string) : Observable<T> {
+      var url = `${this.getUrl(resourceName)}?${queryString}`;
+      return this.httpClient.get<T>(url);
+  }
+
   getAll<T>(resourceName: string): Observable<Array<T>> {
     var url = this.getUrl(resourceName);
     return this.httpClient.get<Array<T>>(url);

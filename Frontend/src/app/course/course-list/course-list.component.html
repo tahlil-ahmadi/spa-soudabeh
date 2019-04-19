@@ -1,0 +1,14 @@
+<kendo-grid [data]="view | async" 
+            [loading]="view.loading"
+            [pageSize]="state.take"
+            [skip]="state.skip"
+            [sortable]="true"
+            [pageable]="true"
+            [scrollable]="'none'"
+            (dataStateChange)="dataStateChange($event)">
+            
+    <kendo-grid-column field="id" width="130"></kendo-grid-column>
+    <kendo-grid-column field="name" width="200"></kendo-grid-column>
+    <kendo-grid-column field="instructor">
+    </kendo-grid-column>
+</kendo-grid>

@@ -58,10 +58,7 @@ export class CourseCategoryListComponent implements OnInit {
     }
     return false;
   }
-
   fetchChildren(model: CourseCategory) :Observable<Array<CourseCategory>> {
     return of(model.children);
   }
-  
-
 }

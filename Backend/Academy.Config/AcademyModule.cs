@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Academy.Application;
+using Academy.Application.Courses;
 using Academy.DataAccess.EFCore;
 using Autofac;
 
@@ -16,12 +17,10 @@ namespace Academy.Config
         }
         protected override void Load(ContainerBuilder builder)
         {
-            builder.RegisterType<CourseCategoryService>()
-                .As<ICourseCategoryService>()
-                .InstancePerLifetimeScope();
+            builder.RegisterType<CourseCategoryService>().As<ICourseCategoryService>().InstancePerLifetimeScope();
+            builder.RegisterType<CourseService>().As<ICourseService>().InstancePerLifetimeScope();
 
-            builder.Register(a => AcademyContextFactory.Create(_connectionString))
-                .InstancePerLifetimeScope();
+            builder.Register(a => AcademyContextFactory.Create(_connectionString)).InstancePerLifetimeScope();
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace Academy.Domain
+namespace Academy.Application.Courses
 {
-    public class Course
+    public class CoursesDto
     {
         public long Id { get; set; }
         public string Name { get; set; }

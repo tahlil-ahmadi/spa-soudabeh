@@ -8,6 +8,7 @@ import { AuthModule } from './auth/auth.module';
 import { LayoutModule } from './layout/layout.module';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 
+
 @NgModule({
   declarations: [
     AppComponent
